@@ -1,0 +1,24 @@
+body {
+    background-color: darkorange;
+    color: teal;
+}
+
+.container {
+    text-align: center;
+}
+
+input {
+    margin: 10px;
+}
+
+div.col-md-12 {
+    padding-top: 100px;
+}
+
+a {
+    margin-bottom: 5px;
+}
+
+table {
+    text-align: center;
+}

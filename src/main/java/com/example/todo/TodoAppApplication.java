@@ -1,13 +1,13 @@
-package com.example.basicbullhornapp;
+package com.example.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BasicBullhornAppApplication {
+public class TodoAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BasicBullhornAppApplication.class, args);
+		SpringApplication.run(TodoAppApplication.class, args);
 	}
 
 }

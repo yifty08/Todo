@@ -1,4 +1,4 @@
-package com.example.basicbullhornapp;
+package com.example.todo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,41 +13,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @Autowired
-    MessageRepository messageRepository;
+    TodoRepository todoRepository;
 
     @RequestMapping("/")
-    public String listMessages(Model model) {
-        model.addAttribute("messages", messageRepository.findAll());
+    public String listTodos(Model model) {
+        model.addAttribute("todos", todoRepository.findAll());
         return "list";
     }
 
     @GetMapping("/add")
-    public String messageForm(Model model) {
-        model.addAttribute("message", new Message());
-        return "messageform";
+    public String todoForm(Model model) {
+        model.addAttribute("todo", new Todo());
+        return "todoform";
     }
 
     @PostMapping("/process")
-    public String processForm(Message message, BindingResult result) {
-        messageRepository.save(message);
+    public String processForm(Todo todo, BindingResult result) {
+        todoRepository.save(todo);
         return "redirect:/";
     }
 
     @RequestMapping("/detail/{id}")
     public String showMessage(@PathVariable("id") long id, Model model) {
-        model.addAttribute("message", messageRepository.findById(id).get());
+        model.addAttribute("todo", todoRepository.findById(id).get());
         return "show";
     }
 
     @RequestMapping("/update/{id}")
     public String updateMessage(@PathVariable("id") long id, Model model) {
-        model.addAttribute("message", messageRepository.findById(id).get());
-        return "messageform";
+        model.addAttribute("todo", todoRepository.findById(id).get());
+        return "todoform";
     }
 
     @RequestMapping("/delete/{id}")
     public String delMessage(@PathVariable("id") long id) {
-        messageRepository.deleteById(id);
+        todoRepository.deleteById(id);
         return "redirect:/";
     }
 }

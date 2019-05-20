@@ -11,20 +11,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                Don't see anything? <a href="/add" type="button" class="btn btn-secondary">Add a message</a>
+                Don't see anything? <a href="/add" type="button" class="btn btn-secondary">Add a todo</a>
                 <br/>
                 <a href="/" type="button" class="btn btn-secondary">Show All Messages</a>
                 <br/>
                 <br/>
-                Title: <span th:text="${message.title}"></span>
+                Title: <span th:text="${todo.taskName}"></span>
                 <br/>
-                Author: <span th:text="${message.postedBy}"></span>
+                Author: <span th:text="${todo.dueDate}"></span>
                 <br/>
-                Content: <p th:text="${message.content}"></p>
+                Date: <span th:text="${todo.priority}"></span>
                 <br/>
-                Date: <span th:text="${message.postedDate}"></span>
-                <br/>
-                <a th:href="@{/delete/{id}(id=${message.id})}" type="button" class="btn btn-danger">Delete this message</a>
+                <a th:href="@{/delete/{id}(id=${todo.id})}" type="button" class="btn btn-danger">Delete this task</a>
             </div>
         </div>
     </div>

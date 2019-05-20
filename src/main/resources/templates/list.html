@@ -11,24 +11,22 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                Don't see anything? <a href="/add" type="button" class="btn btn-secondary">Add a message</a>
+                Don't see anything? <a href="/add" type="button" class="btn btn-secondary">Add a todo</a>
                 <table>
                     <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Content</th>
-                        <th>Date</th>
-                        <th>Actions</th>
+                        <th>    Task Name    </th>
+                        <th>    Due Date    </th>
+                        <th>    Priority    </th>
+                        <th>    Actions    </th>
                     </tr>
-                    <tr th:each="message : ${messages}">
-                        <td th:text="${message.title}"></td>
-                        <td th:text="${message.postedBy}"></td>
-                        <td th:text="${message.content}"></td>
-                        <td th:text="${message.postedDate}"></td>
+                    <tr th:each="todo : ${todos}">
+                        <td th:text="${todo.taskName}"></td>
+                        <td th:text="${todo.dueDate}"></td>
+                        <td th:text="${todo.priority}"></td>
                         <td>
-                            <a th:href="@{/update/{id}(id=${message.id})}" type="button" class="btn btn-secondary">Update</a> -
-                            <a th:href="@{/detail/{id}(id=${message.id})}" type="button" class="btn btn-secondary">Details</a> -
-                            <a th:href="@{/delete/{id}(id=${message.id})}" type="button" class="btn btn-danger">Delete</a>
+                            <a th:href="@{/update/{id}(id=${todo.id})}" type="button" class="btn btn-secondary">Update</a> -
+                            <a th:href="@{/detail/{id}(id=${todo.id})}" type="button" class="btn btn-secondary">Details</a> -
+                            <a th:href="@{/delete/{id}(id=${todo.id})}" type="button" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 </table>
